@@ -1,0 +1,14 @@
+create database crypto;
+use crypto;
+
+create table users(
+  S_N int primary key auto_increment,
+  First_Name varchar(100),
+  Last_Name varchar (100),
+  Email varchar(100) unique,
+  Country varchar(100),
+  Phone bigint(20) unique,
+  Username varchar (100) unique,
+  Pass varchar(250) unique,
+  Reg_Date datetime default now()
+);

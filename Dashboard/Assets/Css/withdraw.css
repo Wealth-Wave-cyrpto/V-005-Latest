@@ -1,0 +1,99 @@
+
+/* Root Variables */
+:root{
+    --color-primary:#7380ec;
+    --color-danger: #ff7782;
+    --color-success:#41f1b6;
+    --color-warning:#ffbb55;
+    --color-white:#fff;
+    --color-info-dark:#7d8da1;
+    --color-info-light:#dce1eb;
+    --color-dark:#363949;
+    --color-light:#848bc82e;
+    --color-primary-variant:#111e88;
+    --color-dark-variant:#677483;
+    --color-background:#f6f6f9;
+
+	--color-primary1: #1c1d3b;
+	--color-primaryOne:#47498a;
+    --color-primary2: #89734c;
+    --color-text1: #333;
+    --color-white: #fff;
+    --color-footer: #111;
+
+    --card-border-radius:2rem;
+    --border-radius-1:0.4rem;
+    --border-radius-2:0.8rem;
+    --border-radius-3:1.2rem;
+
+    --card-padding:1.8rem;
+    --padding-1:1.2rem;
+    --box-shadow: 0 2rem 4rem var(--color-light);
+}
+
+
+
+.context-el{
+    width: 30rem;
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--color-dark-variant);
+    position: fixed;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: var(--border-radius-2);
+    box-shadow: var(--box-shadow);
+    display: none;
+    padding: 2rem;
+}
+
+
+.context-el form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.context-el form p{
+    font-size: 1.5rem;
+}
+
+
+.context-el form .btns{
+    margin-top:2rem ;
+    margin-bottom: 2rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+.withraw-btn{
+    background: #111;
+    color: #fff;
+    cursor: pointer;
+ }
+
+
+.context-el form .btns input{
+    margin-bottom:0.5rem ;
+    margin-top: 0.5rem;
+    width: 50%;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    padding-left: 0.3rem;
+}
+
+.context-el form .btns .amount, .address{
+    border: 1px solid black;
+}
+
+
+
+
+
+
+
