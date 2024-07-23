@@ -1,42 +1,50 @@
 
 <?php
 
+include "../Database/connect.php";
 
 // Code with Mr.Hope
 // @Hope developers
 
+
 if(isset($_POST["login"])){
 
-  include "../Database/connect.php";
+$email = $_POST["email"];
+$password = $_POST["pass"];
 
-  // Check if the user exist
+// Check if the user exist
 
-       $sql = "SELECT * FROM Users where Email = '$email'";
+     $sql = "SELECT * FROM Users where Email = '$email'";
 
-       $result = mysqli_query($conn,$sql);
+     $result = mysqli_query($conn,$sql);
 
-       if(mysqli_num_rows($result)>0){
-        
-                  $row = mysqli_fetch_assoc($result);
+     if(mysqli_num_rows($result)>0){
+      
+                $row = mysqli_fetch_assoc($result);
 
-                  $password = $row["Pass"];
-                    //  Check password
-                    if($pass == $password){
+                $pass = $row["Pass"];
+                  //  Check password
+                  if($pass == $password){
 
-                      session_start();
-                      $_SESSION["verified"] = $email;
-                      header("location: ../Dashboard/index.php");
+                    session_start();
+                    $_SESSION["verified"] = $email;
+                    header("Location: ../Dashboard/index.php");
 
-                    }else{
+                  }else{
 
-                      echo"Invalid Password!";
-                    }
-           
-       }else{
-        echo "Invalid Credentials";
-       }
+                    echo"<div class='alert alert-danger ms-4 me-4'' role='alert'>
+                           Incorrect Password!
+                          </div>!";
+                  }
+         
+     }else{
+      echo "<div class='alert alert-danger ms-4 me-4'' role='alert'>
+                           Invalid Email Address
+                          </div>";
+     }
 
-   }
+ }
+
 ?>
 
 <!DOCTYPE html>
@@ -138,7 +146,7 @@ if(isset($_POST["login"])){
     <!-- Custom styles for this template -->
     <link href="Assets/CSS/sign-in.css" rel="stylesheet">
   </head>
-  <body class="d-flex align-items-center py-4 bg-body-tertiary">
+  <body class="align-items-center py-4 bg-body-tertiary">
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
       <symbol id="check2" viewBox="0 0 16 16">
         <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
@@ -196,11 +204,11 @@ if(isset($_POST["login"])){
     <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
     <div class="form-floating">
-      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="user-mail" required>
+      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email" required>
       <label for="floatingInput" >Email address</label>
     </div>
     <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="user-pass" required>
+      <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="pass" required>
       <label for="floatingPassword">Password</label>
     </div>
 
@@ -219,3 +227,5 @@ if(isset($_POST["login"])){
 <script src="Assets/JS/script.js"></script>
 </body>
 </html>
+
+

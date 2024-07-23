@@ -3,6 +3,7 @@
 include "../Database/connect.php";
 
 if(isset($_POST['register'])){
+  
      $f_name = filter_input(INPUT_POST, "f-name", FILTER_SANITIZE_SPECIAL_CHARS);
      $l_name = filter_input(INPUT_POST, "l-name", FILTER_SANITIZE_SPECIAL_CHARS);
      $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
@@ -16,12 +17,12 @@ if(isset($_POST['register'])){
                 $sql = "INSERT INTO Users(First_Name, Last_Name, Username, Email, Country, Phone, Pass)
                 VALUES('$f_name', '$l_name', '$username', '$email', '$country', '$phone', '$pass')";
                   mysqli_query($conn, $sql);              
-                  echo"<div class='alert alert-success' role='alert'>
+                  echo"<div class='alert alert-success ms-4 me-4' role='alert'>
                             Registered sucessfully! You can now login!
                           </div>";
 
             }catch(mysqli_sql_exception){
-                    echo"<div class='alert alert-danger' role='alert'>
+                    echo"<div class='alert alert-danger ms-4 me-4'' role='alert'>
                            User already Exist! Please check the Username,Email or the phone number!
                           </div>";          
                   }

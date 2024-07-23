@@ -2,8 +2,8 @@
 <?php
 
 session_start();
-if(!isset($_SESSION["registered"])){
-    header("location: ../login.php");
+if(!isset($_SESSION["verified"])){
+    header("location: ../Reg_log/login.php");
  }
 
 ?>
@@ -24,7 +24,7 @@ if(!isset($_SESSION["registered"])){
          <aside>
             <div class="top">
                  <div class="logo">
-                      <img src="Assets/Images/logo.png" alt="">
+                      <img src="Assets/Images/logo.png" alt="The logo">
                       <h2>Wealth <br><span class="danger">Wave</span></h2>
                  </div>
                  <div class="close" id="close-btn">
@@ -395,8 +395,6 @@ s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
 <!--End of Tawk.to Script-->
-<script src="https://public.bnbstatic.com/unpkg/growth-widget/cryptoCurrencyWidget@0.0.13.min.js" ></script><div class="binance-widget-marquee" data-cmc-ids="1,1027,1839,5426,3408,52,74,5805,7083,3890" data-theme="dark" data-transparent="false" data-powered-by="Powered by" data-disclaimer="Disclaimer" ></div>
-
        <script src="Assets/Javascript/script.js"></script> 
        <script src="Assets/Javascript/fetch.js"></script>   
     </body>
