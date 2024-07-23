@@ -1,6 +1,42 @@
 
 <?php
-include "../Database/connect.php";
+
+
+// Code with Mr.Hope
+// @Hope developers
+
+if(isset($_POST["login"])){
+
+  include "../Database/connect.php";
+
+  // Check if the user exist
+
+       $sql = "SELECT * FROM Users where Email = '$email'";
+
+       $result = mysqli_query($conn,$sql);
+
+       if(mysqli_num_rows($result)>0){
+        
+                  $row = mysqli_fetch_assoc($result);
+
+                  $password = $row["Pass"];
+                    //  Check password
+                    if($pass == $password){
+
+                      session_start();
+                      $_SESSION["verified"] = $email;
+                      header("location: ../Dashboard/index.php");
+
+                    }else{
+
+                      echo"Invalid Password!";
+                    }
+           
+       }else{
+        echo "Invalid Credentials";
+       }
+
+   }
 ?>
 
 <!DOCTYPE html>
@@ -99,7 +135,6 @@ include "../Database/connect.php";
       }
     </style>
 
-    
     <!-- Custom styles for this template -->
     <link href="Assets/CSS/sign-in.css" rel="stylesheet">
   </head>
@@ -175,47 +210,12 @@ include "../Database/connect.php";
         Remember me
       </label>
     </div>
-    <button class="btn btn-primary w-100 py-2" type="submit" name="sign-in">Sign in</button>
+    <button class="btn btn-primary w-100 py-2" type="submit" name="login">Sign in</button>
     <p class="mt-5 mb-3"  >Forgot Password? <a href="">Reset</a></p>
     <p class="mt-5 mb-3 text-body-secondary copyright">&copy;  </p>
   </form>
 </main>
 <script src="assets/js/bootstrap.bundle.min.js"></script>
 <script src="Assets/JS/script.js"></script>
-
-    </body>
+</body>
 </html>
-
-<?php
-
-
-if(isset($_POST["sign-in"])){
-
-          $email = $_POST["user-mail"];
-          $password = $_POST["user-pass"];
-          
-          $sql = "SELECT * FROM users where Email = '$email' ";
-          
-          $result = mysqli_query($conn, $sql);
-          
-          if(mysqli_num_rows($result)>0){
-                $user = mysqli_fetch_assoc($result);
-          
-            if($password == $user["Pass"]){ 
-              session_start();
-              $_SESSION["registered"] = $email;   
-              header('location: ../Dashboard/index.php');      
-            } else{
-              echo"Invalid Credentials";
-              
-            }
-    
-  }else{
-    echo"No user Found";
-  
-  }
-  
-  }
-
-
-?>

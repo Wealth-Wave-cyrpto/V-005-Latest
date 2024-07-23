@@ -4,7 +4,7 @@
     $db_server = 'Localhost';
     $db_user = "root";
     $db_pass = "@Bashanshullam2209";
-    $db_name = "crypto";
+    $db_name = "wave_crypto";
     $conn ="";
      try{
         $conn = mysqli_connect($db_server, $db_user, $db_pass, $db_name);
