@@ -50,8 +50,8 @@
             <div class="col-12">
               <hr class="mt-5 mb-4 border-secondary-subtle">
               <div class="d-flex gap-4 justify-content-center">
-                <a href="#!" class="link-secondary text-decoration-none">Log In</a>
-                <a href="#!" class="link-secondary text-decoration-none">Register</a>
+                <a href="login.php" class="link-secondary text-decoration-none">Log In</a>
+                <a href="register.php" class="link-secondary text-decoration-none">Register</a>
               </div>
             </div>
           </div>
