@@ -2,7 +2,7 @@ create  database Wave_crypto;
 use Wave_crypto;
 
 create table Users(
- SN int primary key auto_increment,
+     SN int primary key auto_increment,
 	 First_Name varchar(50),
 	 Last_Name varchar(50),
 	 Username varchar(50) unique,
@@ -10,5 +10,18 @@ create table Users(
 	 Country varchar(50),
 	 Phone varchar(50) unique,
 	 Pass varchar(255),
+	 Balance int,
+	 U_Status varchar (50),
      Reg_Date datetime default now()
+);
+
+
+
+create table Investment(
+   Init_ID int,
+   Full_Name varchar(255),
+   Username varchar (255),
+   Amount int,
+   Invest_ID int primary KEY auto_increment,
+   Ivest_Date datetime default now()
 );
