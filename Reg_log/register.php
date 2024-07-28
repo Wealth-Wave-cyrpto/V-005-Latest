@@ -53,8 +53,9 @@ if(isset($_POST['register'])){
     <div class="m-4">
         <h1 class="text-body-emphasis">Get started with Wealthwave</h1>
          <p class="fs-5 col-md-8">Fill in the following Credentials, to continue.</p>
+         <p>Already have Account? <a href="login.php">Login</a></p>
    </div>
-    <form class="row g-3 needs-validation shadow rounded p-3 m-4" id="register-el"  action='<?php $_SERVER['PHP_SELF']?>' method="POST" novalidate>
+    <form class="row g-3 needs-validation shadow rounded p-5 p m-4" id="register-el"  action='<?php $_SERVER['PHP_SELF']?>' method="POST" novalidate>
         <div class="col-md-4">
           <label for="validationCustom01" class="form-label">First name</label>
           <input type="text" class="form-control" id="validationCustom01" name="f-name" required>
