@@ -16,6 +16,11 @@ create table Users(
 );
 
 
+ALTER TABLE USERS ADD COLUMN reset_token_hash varchar(64) DEFAULT Null AFTER U_Status;
+ALTER TABLE USERS ADD COLUMN reset_token_expires_at datetime DEFAULT Null AFTER reset_token_hash;
+
+
+
 
 create table Investment(
    Init_ID int,
@@ -25,3 +30,5 @@ create table Investment(
    Invest_ID int primary KEY auto_increment,
    Ivest_Date datetime default now()
 );
+
+
